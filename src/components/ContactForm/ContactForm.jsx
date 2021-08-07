@@ -12,6 +12,8 @@ export default function ContactForm() {
   const [number, setNumber] = useState('');
   const contacts = useSelector(getContacts);
   const dispatch = useDispatch();
+  const contact = {id: uuidv4(),name,number};
+  const saveContacts=contact=>dispatch(addContacts(contact));
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -24,12 +26,7 @@ export default function ContactForm() {
       alert(`${name} is already in contacts`);
       return;
     } else {
-      dispatch(addContacts({ 
-        id: uuidv4(),
-        name,
-        number,
-       })
-       );
+      saveContacts(contact);
       setName('');
       setNumber('');
     }

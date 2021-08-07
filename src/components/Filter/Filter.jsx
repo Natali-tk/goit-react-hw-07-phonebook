@@ -29,9 +29,3 @@ Filter.propTypes = {
   onChange: PropTypes.func,
 };
 
-// const mapStateToProps=state=>({value:state.filter});
-// const mapDispatchToProps=dispatch=>({
-//   onChange:e=>dispatch(changeFilter(e.target.value)),
-// });
-
-// export default connect(mapStateToProps, mapDispatchToProps)(Filter)
