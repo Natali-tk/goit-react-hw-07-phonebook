@@ -34,14 +34,12 @@ export const addContacts =
 export const deleteContacts = id => async dispatch => {
   dispatch(contactsActions.deleteContactsRequest());
   try {
-    const { data } = await axios.delete(`/contacts/${id}`);
-    dispatch(contactsActions.deleteContactsSuccess(data));
+     await axios.delete(`/contacts/${id}`);
+    dispatch(contactsActions.deleteContactsSuccess(id));
   } catch (error) {
     dispatch(contactsActions.deleteContactsError(error));
   }
 };
-
-
 
 // export const fetchContacts= createAsyncThunk(
 //     'contacts/fetchContacts',
