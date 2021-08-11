@@ -15,7 +15,7 @@ export const fetchContacts = () => async dispatch => {
 };
 
 export const addContacts =
-  ({ id,name, number }) =>
+  ({ id, name, number }) =>
   async dispatch => {
     const contact = {
       id,
@@ -34,29 +34,11 @@ export const addContacts =
 export const deleteContacts = id => async dispatch => {
   dispatch(contactsActions.deleteContactsRequest());
   try {
-     await axios.delete(`/contacts/${id}`);
+    await axios.delete(`/contacts/${id}`);
     dispatch(contactsActions.deleteContactsSuccess(id));
   } catch (error) {
     dispatch(contactsActions.deleteContactsError(error));
   }
 };
 
-// export const fetchContacts= createAsyncThunk(
-//     'contacts/fetchContacts',
-//     async()=>{
-//         const contacts=await axios.get('/contacts');
-//         return contacts;
-//     });
-// export const addContacts= createAsyncThunk(
-//         'contacts/fetchContacts',
-//         async()=>{  
-//             const contacts=await axios.post('/contacts');
-//             return contacts;
-//         });    
 
-// export const deleteContacts= createAsyncThunk(
-//             'contacts/fetchContacts',
-//             async(id)=>{
-//                 const contacts=await axios.delete(`/contacts/${id}`);
-//                 return contacts;
-//             });    
